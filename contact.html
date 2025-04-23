@@ -62,8 +62,11 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- EmailJS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        emailjs.init("OEI6jMFsMPtbUx7LM"); // Replace with your EmailJS user ID
+
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -73,16 +76,23 @@
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
 
-            // Validate Name and Message
+            // Validate mandatory fields
             if (!name.trim() || !message.trim()) {
-                alert('Name and Message are required!');
+                alert("Name and Message are required!");
                 return;
             }
 
-            // Sending the data (example via EmailJS or backend script)
-            alert(`Submitting Form:\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}\n\nEmail functionality needs to be configured.`);
-            
-            // You'll need a backend or an EmailJS-like service to forward this data to karthikeyan_official@hotmail.com
+            // Send email using EmailJS
+            emailjs.send("service_ispbrf5", "template_wb6t13s", {
+                name: name,
+                phone: phone,
+                email: email,
+                message: message,
+            }).then(() => {
+                alert("Your message has been sent successfully!");
+            }).catch((error) => {
+                alert("Failed to send your message. Error: " + error);
+            });
         });
     </script>
 </body>
