@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Welcome to Community</title>
   <style>
-    /* General Styles */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -16,7 +15,7 @@
     header {
       background: #007acc;
       color: #fff;
-      padding: 15px 20px;
+      padding: 20px;
       text-align: center;
       font-size: 24px;
       font-weight: bold;
@@ -31,63 +30,12 @@
       color: #333;
     }
 
-    /* Navigation Bar */
-    .navbar {
-      display: flex;
-      justify-content: center;
-      background: #005ea3;
-      padding: 10px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      transition: background 0.3s ease;
-    }
-
-    .navbar a:hover {
-      background: #004480;
-    }
-
-    /* Responsive Flexbox for Posts Section */
-    .posts-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .post-box {
-      background: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      padding: 15px;
-      max-width: 300px;
-      text-align: center;
-    }
-
-    .post-box a {
-      color: #007acc;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .post-box a:hover {
-      text-decoration: underline;
-    }
-
-    /* Tab styles */
     .tab {
       overflow: hidden;
-      display: flex;
-      justify-content: center;
       border-bottom: 1px solid #ccc;
       background-color: #f1f1f1;
+      display: flex;
+      justify-content: center;
     }
 
     .tab button {
@@ -115,8 +63,56 @@
       border-top: none;
       background-color: #fff;
     }
+  </style>
+</head>
+<body>
+  <header>Karthikeyan M</header>
+  <div class="container">
+    <h1>Welcome to Community</h1>
+    
+    <!-- Tab navigation -->
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'about')">About Me</button>
+      <button class="tablinks" onclick="openTab(event, 'contact')">Contact Me</button>
+    </div>
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .post-box {
-        max-width: 100%;
+    <!-- Tab content -->
+    <div id="about" class="tabcontent">
+      <h3>About Me</h3>
+      <p>I am a Senior Software Engineer Professional working in FIS,I am a developer apart from that i would love to write articles about tech updates, tips and tricks, how to guides etc.</p>
+    </div>
+
+    <div id="contact" class="tabcontent">
+      <h3>Contact Me</h3>
+      <p><a href="https://karthikeyanin.github.io/contact.html">Click here to send message</a></p>
+    </div>
+  </div>
+  
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    // Automatically open "About Me" on page load
+    document.addEventListener("DOMContentLoaded", function(){
+      document.querySelector(".tablinks").click();
+    });
+  </script>
+<center>
+<p>
+<h3>Posts</h3>
+<a href="https://karthikeyanin.github.io/posts/event_based_blog.html">Event Based Bloggin</a>
+</p>
+</center>
+</body>
+</html>
