@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,17 @@
             margin: 0;
             padding: 0;
             background: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .content-box {
+            width: 80%;
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         header {
             background: #007acc;
@@ -57,28 +69,30 @@
     </style>
 </head>
 <body>
-    <header>Karthikeyan M</header>
-    <nav>
-        <a href="#about" class="tablinks" onclick="openTab(event, 'about')">About Me</a>
-        <a href="#contact" class="tablinks" onclick="openTab(event, 'contact')">Contact Me</a>
-    </nav>
-    <div class="container">
-        <h1>Welcome to Community</h1>
+    <div class="content-box">
+        <header>Karthikeyan M</header>
+        <nav>
+            <a href="#about" class="tablinks" onclick="openTab(event, 'about')">About Me</a>
+            <a href="https://karthikeyanin.github.io/contact.html" class="tablinks" onclick="openTab(event, 'contact')">Contact Me</a>
+        </nav>
+        <div class="container">
+            <h1>Welcome to My Community</h1>
 
-        <!-- Tab content -->
-        <div id="about" class="tabcontent">
-            <h3>About Me</h3>
-            <p>As a Senior Software Engineer at FIS, I specialize in development and innovation within the tech industry. Beyond my professional role, I have a passion for writing insightful articles on technology trends, updates, best practices, and comprehensive how-to guides, aimed at empowering and informing tech enthusiasts.</p>
-        </div>
-        <div id="contact" class="tabcontent">
-            <h3>Contact Me</h3>
-            <p><a href="https://karthikeyanin.github.io/contact.html">Click here to send message</a></p>
-        </div>
+            <!-- Tab content -->
+            <div id="about" class="tabcontent">
+                <h3>About Me</h3>
+                <p>As a Senior Software Engineer at FIS, I specialize in development and innovation within the tech industry. Beyond my professional role, I have a passion for writing insightful articles on technology trends, updates, best practices, and comprehensive how-to guides, aimed at empowering and informing tech enthusiasts.</p>
+            </div>
+            <div id="contact" class="tabcontent">
+                <h3>Contact Me</h3>
+                <p><a href="https://karthikeyanin.github.io/contact.html">Click here to send message</a></p>
+            </div>
 
-        <!-- Posts section -->
-        <div class="posts-section">
-            <h3>Posts</h3>
-            <p><a href="https://karthikeyanin.github.io/posts/event_based_blog.html">Event Based Blogging</a></p>
+            <!-- Posts section -->
+            <div class="posts-section">
+                <h3>Posts</h3>
+                <p><a href="https://karthikeyanin.github.io/posts/event_based_blog.html">Event Based Blogging</a></p>
+            </div>
         </div>
     </div>
 
