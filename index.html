@@ -12,14 +12,25 @@
             padding: 0;
             background: #f9f9f9;
         }
-        header {
-            background: #007acc;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-        }
+    header {
+        background: #ffffff; /* White background */
+        color: #000; /* Black text for contrast */
+        padding: 20px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        #display: flex;
+        align-items: center;
+        #justify-content: space-between;
+    }
+
+    .logo {
+    	width: 530px; /* Adjust the width as needed */
+    	height: 110px; /* Adjust the height */
+	align-items: center;
+	text-align: center;
+    }
+
         .container {
             padding: 20px;
         }
@@ -58,7 +69,10 @@
     </style>
 </head>
 <body>
-    <header>Karthikeyan M</header>
+    <header>
+        <img src="https://i.ibb.co/LXNDCPnM/2025-05-09-14-18-58-KMA-jpg-Irfan-View-Zoom-606-x-606.jpg" alt="Logo" class="logo">
+    </header>
+
     <nav>
         <a href="#about" class="tablinks" onclick="openTab(event, 'about')">About Me</a>
         <a href="https://karthikeyanin.github.io/contact.html" class="tablinks" onclick="openTab(event, 'contact')">Contact Me</a>
