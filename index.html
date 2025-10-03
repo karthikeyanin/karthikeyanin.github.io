@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Profile</title>
+    <meta name="description" content="Karthikeyan M - Senior Software Engineer with 9+ years of experience in Banking Switch Products, C, Python, SQL. Based in Chennai, Tamil Nadu.">
+    <meta name="keywords" content="Software Engineer, Banking Systems, C Programming, Python, SQL, Switch Products, Chennai Developer">
+    <meta name="author" content="Karthikeyan M">
+    <meta property="og:title" content="Karthikeyan M - Senior Software Engineer">
+    <meta property="og:description" content="Experienced software engineer specializing in Banking Switch Products and applications">
+    <meta property="og:type" content="profile">
+    <title>Karthikeyan M - Senior Software Engineer | Banking Systems Specialist</title>
     <style>
         * {
             margin: 0;
@@ -21,9 +27,16 @@
             font-size: clamp(14px, 2.5vw, 16px);
         }
         
-        .profile-container {
-            max-width: 800px;
+        .main-wrapper {
+            max-width: 1400px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+            align-items: start;
+        }
+        
+        .profile-container {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -36,6 +49,146 @@
         
         .profile-container:hover {
             transform: translateY(-5px);
+        }
+        
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .widget {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .widget:hover {
+            transform: translateY(-5px);
+        }
+        
+        .widget h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .widget-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .contact-widget-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .contact-widget-item:hover {
+            background: linear-gradient(135deg, #e9ecef, #dee2e6);
+            transform: translateX(5px);
+        }
+        
+        .contact-widget-item span:first-child {
+            font-size: 1.2em;
+            min-width: 24px;
+        }
+        
+        .contact-widget-item a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 0.9em;
+            word-break: break-all;
+        }
+        
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .project-item {
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 3px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .project-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-item h4 {
+            color: #2c3e50;
+            font-size: 1em;
+            margin-bottom: 8px;
+        }
+        
+        .project-item p {
+            color: #555;
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 8px;
+        }
+        
+        .tech-tag {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
         }
         
         .header {
@@ -231,15 +384,132 @@
             font-size: 0.9em;
             margin-bottom: 10px;
         }
+
+        .certification-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 3px solid #3498db;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            transition: all 0.3s ease;
+        }
         
-        /* Extra Small Devices (phones, 320px and up) */
+        .certification-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cert-content {
+            width: 100%;
+        }
+        
+        .cert-content h3 {
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .cert-issuer {
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 0.95em;
+            margin-bottom: 4px;
+        }
+        
+        .cert-date {
+            color: #7f8c8d;
+            font-size: 0.85em;
+            margin-bottom: 6px;
+        }
+        
+        .cert-credential {
+            color: #555;
+            font-size: 0.85em;
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+        
+        .show-credential-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: white;
+            color: #3498db;
+            border: 1px solid #3498db;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .show-credential-btn:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+        
+        .show-credential-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+	.profile-pic {
+    	   width: 100%;
+           height: 100%;
+           object-fit: cover;
+           border-radius: 50%;
+        }
+        
+        /* Tablet and below - Stack sidebar below main content */
+        @media (max-width: 1024px) {
+            .main-wrapper {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+            }
+        }
+        
+        /* Mobile devices */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+            
+            .widget {
+                padding: 20px;
+            }
+            
+            .social-links {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         @media (max-width: 480px) {
             body {
                 padding: 10px;
             }
             
             .profile-container {
-                margin: 0;
                 border-radius: 10px;
             }
             
@@ -317,308 +587,290 @@
                 font-size: 1.1em;
                 line-height: 1.3;
             }
-        }
-        
-        /* Small Devices (landscape phones, 481px to 768px) */
-        @media (min-width: 481px) and (max-width: 768px) {
-            body {
+            
+            .widget {
                 padding: 15px;
             }
             
-            .profile-container {
-                margin: 0;
-                border-radius: 15px;
-            }
-            
-            .header {
-                padding: 30px 20px;
-            }
-            
-            .profile-image {
-                width: 100px;
-                height: 100px;
-                font-size: 40px;
-            }
-            
-            .name {
-                font-size: 2em;
-                line-height: 1.2;
-            }
-            
-            .title {
+            .widget h3 {
                 font-size: 1.1em;
             }
-            
-            .content {
-                padding: 25px;
-            }
-            
-            .section {
-                padding: 20px;
-                margin-bottom: 25px;
-            }
-            
-            .section h2 {
-                font-size: 1.3em;
-            }
-            
-            .section p, .section li {
-                font-size: 1em;
-            }
-            
-            .contact-info {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 15px;
-            }
-            
-            .contact-item {
-                justify-content: center;
-                text-align: center;
-            }
         }
         
-        /* Medium Devices (tablets, 769px to 1024px) */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .profile-container {
-                max-width: 700px;
-            }
-            
-            .header {
-                padding: 35px 30px;
-            }
-            
-            .content {
-                padding: 30px;
-            }
-            
-            .contact-info {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 15px;
-            }
-        }
-        
-        /* Large Devices (desktops, 1025px to 1200px) */
-        @media (min-width: 1025px) and (max-width: 1200px) {
-            .profile-container {
-                max-width: 850px;
-            }
-        }
-        
-        /* Extra Large Devices (large desktops, 1201px and up) */
-        @media (min-width: 1201px) {
-            .profile-container {
-                max-width: 900px;
-            }
-            
-            .header {
-                padding: 50px;
-            }
-            
-            .content {
-                padding: 50px;
-            }
-            
-            .section {
-                padding: 30px;
-                margin-bottom: 40px;
-            }
-            
-            .section h2 {
-                font-size: 1.6em;
-            }
-            
-            .section p, .section li {
-                font-size: 1.2em;
-            }
-        }
-        
-        /* Landscape orientation adjustments */
-        @media (max-height: 600px) and (orientation: landscape) {
-            .header {
-                padding: 20px;
-            }
-            
-            .profile-image {
-                width: 60px;
-                height: 60px;
-                font-size: 24px;
-                margin-bottom: 10px;
-            }
-            
-            .name {
-                font-size: 1.4em;
-            }
-            
-            .title {
-                font-size: 0.9em;
-            }
-            
-            .content {
-                padding: 15px;
-            }
-            
-            .section {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-        }
-        
-        /* High DPI displays (Retina) */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .section-icon {
-                font-size: 14px;
-            }
-            
-            .skill {
-                border: 0.5px solid rgba(255, 255, 255, 0.3);
-            }
-        }
-        
-        /* Touch device optimizations */
         @media (hover: none) and (pointer: coarse) {
-            .skill, .contact-item, .section {
+            .skill, .contact-item, .section, .widget, .social-link, .project-item {
                 transition: none;
             }
             
-            .skill:hover, .contact-item:hover, .section:hover {
+            .skill:hover, .contact-item:hover, .section:hover, .widget:hover, .social-link:hover, .project-item:hover {
                 transform: none;
             }
             
             .profile-container:hover {
                 transform: none;
             }
-            
-            .contact-item {
-                padding: 15px;
-                font-size: 1em;
-            }
-            
-            .skill {
-                padding: 10px 16px;
-                margin: 3px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="profile-container">
-        <div class="header">
-            <div class="profile-image">KM</div>
-            <h1 class="name">Karthikeyan M</h1>
-            <p class="title">Senior Software Engineer</p>
+    <div class="main-wrapper">
+        <div class="profile-container">
+            <header class="header">
+	   <div class="profile-image">
+    		<img src="https://i.ibb.co/mCbLxwbS/1743879074729.jpg" alt="Karthikeyan M" class="profile-pic" />
+	    </div>
+
+                <h1 class="name">Karthikeyan M</h1>
+                <p class="title">Senior Software Engineer</p>
+            </header>
+            
+            <main class="content">
+                <section class="section">
+                    <h2><span class="section-icon">👨</span>About Me</h2>
+                    <p>Passionate software engineer with 9+ years of experience in developing Banking Switch Products and their applications and leading Production support teams. 
+                        I thrive in collaborative environments and am always eager to learn new technologies and tackle challenging problems.</p>
+                </section>
+                
+                <section class="section">
+                    <h2><span class="section-icon">💼</span>Experience</h2>
+                    <article class="experience-item">
+                        <h3>FIS Global Business Solutions Ltd</h3>
+                        <div class="company">Senior Software Engineer</div>
+                        <div class="date">April 2025 - Present</div>
+                        <p>Working in a product team to enhance the switch product with addressing critical client raised bugs, Developing the implement ready switch and doing various unit testing, producing it to the clients</p>
+                    </article>
+                    <article class="experience-item">
+                        <h3>Fiserv India Private Ltd</h3>
+                        <div class="company">Software Professional II</div>
+                        <div class="date">July 2022 - March 2025</div>
+                        <p>>> Worked in interchange fee calculation system which will generate report based on switch Fee calculation for POS transactions from various networks like Mastercard, Visa, Interlink, Allpoint, Application used  C, Pro c, python and shell script to run in ca7 scheduler</p>
+                        <p>>> Worked to implement voltage system to encrypt and decrypt PCI datas in database and Files</p>
+                        <p>>> Worked in Fortify Remediation to clear vulnerabilities in the system</p>
+                        <p>>> Worked in various customization of application based on performance and application rewrite from cobol to python</p>
+                    </article>
+                    <article class="experience-item">		   
+                        <h3>FIS Payments Services and Solutions Ltd</h3>
+                        <div class="company">Lead Development Engineer</div>
+                        <div class="date">Nov 2021 - Jul 2022</div>
+                        <p>Worked for the shared environments which has all the clients. Done Bug fixes in production, Enhancement of production environment, CRs</p>
+                        <p><b>Skillset used</b> - C, Pro*C, Oracle SQL, Shell scripting Perl, SP</p>
+
+                        <div class="company">Programmer Analyst II</div>
+                        <div class="date">Nov 2019 - Apr 2022</div>
+                        <p>Worked on migration project for Lanka Clear (Srilanka) with Developing the code, Unit Testing, Implementation, UAT/ Production Support</p>
+                        <p><b>Skillset used</b> - C, Shell scripting, Pro c, Oracle, Unix</p>
+
+                        <div class="company">Programmer Analyst I</div>
+                        <div class="date">Nov 2017 - Nov 2019</div>
+                        <p>Worked on Bank Switch and Card management system customization for Prime Bank (Dhaka), Paytm payments Bank, Punjab National Bank. Worked on VISA online certification, Testing and support</p>
+                        <p><b>Skillset used</b> - C Programming , Shell scripiting , PL SQL, Unix, Python, Oracle Tuxedo</p>
+
+                        <div class="company">IT Trainee</div>
+                        <div class="date">Nov 2016 - Nov 2017</div>
+                        <p>Banking and Payments, Cortex card management and switch, Application Programming, Shell scripting, implementation and Enhancement. Developed Python Report tool using configparser, pandas, xlsxwriter</p>
+                    </article>
+                </section>
+
+                <section class="section">
+                    <h2><span class="section-icon">📜</span>Licenses & Certifications</h2>
+                    
+                    <article class="certification-item">
+                        <div class="cert-content">
+                            <h3>PCEP™ – Certified Entry-Level Python Programmer</h3>
+                            <div class="cert-issuer">Python Institute</div>
+                            <div class="cert-date">Issued Jul 2024</div>
+                            <div class="cert-credential">Credential ID tUKzjsnY.kUpK</div>
+                            <button class="show-credential-btn" onclick="window.open('https://verify.openedg.org/?id=tUKz.jshY.kUpK', '_blank')">
+                                Show credential
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="certification-item">
+                        <div class="cert-content">
+                            <h3>Microsoft Certified: Azure Fundamentals</h3>
+                            <div class="cert-issuer">Microsoft</div>
+                            <div class="cert-date">Issued Jun 2023</div>
+                            <div class="cert-credential">Credential ID 7473EAC4B1B7F006</div>
+                            <button class="show-credential-btn" onclick="window.open('https://learn.microsoft.com/en-us/users/karthikeyanm-5381/credentials/7473eac481b7f006', '_blank')">
+                                Show credential
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <article class="certification-item">
+                        <div class="cert-content">
+                            <h3>Tricentis Tosca Fundamentals – Optimizing test automation with centralized test data (AS2)</h3>
+                            <div class="cert-issuer">Tricentis</div>
+                            <div class="cert-date">Issued Feb 2024</div>
+                            <div class="cert-credential">Credential ID mr7ohbzjv9xr</div>
+                            <button class="show-credential-btn" onclick="window.open('https://verify.skilljar.com/c/mr7ohbzjw9xr', '_blank')">
+                                Show credential
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <article class="certification-item">
+                        <div class="cert-content">
+                            <h3>Tricentis Tosca Fundamentals – Automating web application testing (AS1)</h3>
+                            <div class="cert-issuer">Tricentis</div>
+                            <div class="cert-date">Issued Jan 2024</div>
+                            <div class="cert-credential">Credential ID cr4i39ja7n9n</div>
+                            <button class="show-credential-btn" onclick="window.open('https://verify.skilljar.com/c/cr4t39ja7n9n', '_blank')">
+                                Show credential
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="certification-item">
+                        <div class="cert-content">
+                            <h3>Python Zero To Mastery 2022</h3>
+                            <div class="cert-issuer">Udemy</div>
+                            <div class="cert-date">Issued Jul 2022</div>
+                            <button class="show-credential-btn" onclick="window.open('https://www.udemy.com/certificate/UC-2b6074e2-3567-417c-950b-b279dc94d18c', '_blank')">
+                                Show credential
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="certification-item">
+                        <div class="cert-content">
+                            <h3>Cyber Security: From Beginner to Expert</h3>
+                            <div class="cert-issuer">LogixAcademy</div>
+                            <div class="cert-date">Issued Aug 2024</div>
+                            <div class="cert-credential">Credential ID UC-c8d30462-5d76-4b17-9fd0-4ab62b4d6045</div>
+                            <button class="show-credential-btn" onclick="window.open('https://www.udemy.com/certificate/UC-c8d30462-5d76-4b17-9fd0-4db62b4d6045', '_blank')">
+                                Show credential
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    
+             
+                </section>
+                
+                <section class="section">
+                    <h2><span class="section-icon">🎓</span>Education</h2>
+                    <article class="education-item">
+                        <h3>BE Computer Science</h3>
+                        <div class="institution">Saveetha Engineering College</div>
+                        <div class="date">2012 - 2016</div>
+                        <p>Graduated Computer Science Engineering.</p>
+                    </article>
+                </section>
+                
+                <section class="section">
+                    <h2><span class="section-icon">🛠️</span>Skills</h2>
+                    <div class="skills">
+                        <span class="skill">C</span>
+                        <span class="skill">C++</span>
+                        <span class="skill">Python</span>
+                        <span class="skill">SQL</span>
+                        <span class="skill">Shell Scripting</span>
+                        <span class="skill">Git</span>
+                        <span class="skill">CI/CD - Jenkins, Github Actions, Harness, Jfrog Artifactory</span>
+                        <span class="skill">Agile/Scrum</span>
+                    </div>
+                </section>
+         
+
+                <section class="section">
+                    <h2><span class="section-icon">📄</span>Resume</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>Download Here</span>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
         
-        <div class="content">
-            <div class="section">
-                <h2><span class="section-icon">👨</span>About Me</h2>
-                <p>Passionate software engineer with 9+ years of experience in developing Banking Switch Products and their applications and leading Production support teams. 
-                    I thrive in collaborative environments and am always eager to learn new technologies and tackle challenging problems.</p>
-            </div>
-            
-            <div class="section">
-                <h2><span class="section-icon">💼</span>Experience</h2>
-                <div class="experience-item">
-                    <h3>FIS Global Business Solutions Ltd</h3>
-                    <div class="company">Senior Software Engineer</div>
-                    <div class="date">April 2025 - Present</div>
-                    <p>Working in a product team to enhance the switch product with addressing critical client raised bugs, Developing the implement ready switch and doing various unit testing, producing it to the clients</p>
+        <aside class="sidebar">
+            <div class="widget">
+                <h3><span class="widget-icon">💬</span>Contact by Email</h3>
+                <div class="contact-widget-item">
+                    <span>📧</span>
+                    <a href="mailto:karthikeyan_official@hotmail.com">karthikeyan_official@hotmail.com</a>
                 </div>
-                <div class="experience-item">
-                    <h3>Fiserv India Private Ltd</h3>
-                    <div class="company">Software Professional II</div>
-                    <div class="date">July 2022 - March 2025</div>
-                    <p>>> Worked in interchange fee calculation system which will generate report based on switch Fee calculation for POS transactions from various networks like Mastercard, Visa, Interlink, Allpoint, Application used  C, Pro c, python and shell script to run in ca7 scheduler</p>
-<p>>> Worked to implement voltage system to encrypt and decrypt PCI datas in database and Files</p>
-<p>>> Worked in Fortify Remediation to clear vulnerabilities in the system</p>
-<p>>> Worked in various customization of application based on performance and application rewrite from cobol to python</p>
-                </div>
-		<div class="experience-item">		   
-		   <h3>FIS Payments Services and Solutions Ltd</h3>
-		   <div class="company">Lead Development Engineer</div>
-	           <div class="date">Nov 2021 - Jul 2022</div>
-        	<p>Worked for the shared environments which has all the clients
-
-        Done Bug fixes in production, Enhancement of production environment, CRs</p>
-
-        <p><b>Skillset used</b> - C, Pro*C, Oracle SQL, Shell scripting Perl, SPWorked for the shared environments which has all the clients Done Bug fixes in production, Enhancement of production environment, CRs Skillset used - C, Pro*C, Oracle SQL, Shell scripting Perl, SP</p>
-
-		  <div class="company">Programmer Analyst II</div>
-		  <div class="date">Nov 2019 - Apr 2022</div>
-<p>  Worked on migration project for Lanka Clear (Srilanka) with Developing the code, Unit Testing, Implementation, UAT/ Production Support </p>
-
-        <p><b>Skillset used</b> - C, Shell scripting, Pro c, Oracle, UnixWorked on migration project for Lanka Clear (Srilanka) with Developing the code, Unit Testing, Implementation, UAT/ Production Support Skill set used - C, Shell scripting, Pro c, Oracle, Unix</p>
-
-		  <div class="company">Programmer Analyst I</div>
-		<div class="date">Nov 2017 - Nov 2019</div>
-
-        <p>Worked on Bank Switch and Card management system customization for Prime Bank (Dhaka), Paytm payments Bank, Punjab National Bank
-
-        Worked on VISA online certification, Testing and support</p>
-
-        <p><b>Skillset used</b> - C Programming , Shell scripiting , PL SQL, Unix, Python, Oracle TuxedoWorked on Bank Switch and Card management system customization for Prime Bank (Dhaka), Paytm payments Bank, Punjab National Bank Worked on VISA online certification, Testing and support Skill set used - C Programming , Shell scripiting , PL SQL, Unix, Python, Oracle Tuxedo</p>
-
-		<div class="company">IT Trainee</div>
-		<div class="date">Nov 2016 - Nov 2017</div>
-
-<p>        Banking and Payments, Cortex card management and switch, Application Programming, Shell scripting, implementation and Enhancement
-
-        Developed Python Report tool using configparser, pandas, xlsxwriter</p>
-		</div>
             </div>
-            
-            <div class="section">
-                <h2><span class="section-icon">🎓</span>Education</h2>
-                <div class="education-item">
-                    <h3>BE Computer Science</h3>
-                    <div class="institution">Saveetha Engineering College</div>
-                    <div class="date">2012 - 2016</div>
-                    <p>Graduated Computer Science Engineering.</p>
+	    
+	    <div class="widget">
+                <h3><span class="widget-icon">📊</span>Quick Stats</h3>
+                <div class="project-item">
+                    <h4>9+ Years Experience</h4>
+                    <p>Banking & Financial Systems</p>
+                </div>
+                <div class="project-item">
+                    <h4>Multiple Certifications</h4>
+                    <p>VISA Online Certified</p>
+                </div>
+                <div class="project-item">
+                    <h4>8+ Technologies</h4>
+                    <p>Proficient in various stacks</p>
                 </div>
             </div>
             
-            <div class="section">
-                <h2><span class="section-icon">🛠️</span>Skills</h2>
-                <div class="skills">
-                    <span class="skill">C</span>
-                    <span class="skill">C++</span>
-                    <span class="skill">Python</span>
-                    <span class="skill">SQL</span>
-                    <span class="skill">Shell Scripting</span>
-                    <span class="skill">Git</span>
-                    <span class="skill">CI/CD - Jenkins, Github Actions, Harness, Jfrog Artifactory</span>
-                    <span class="skill">Agile/Scrum</span>
+            
+            <div class="widget">
+                <h3><span class="widget-icon">🚀</span>Latest Projects</h3>
+                <div class="project-item">
+                    <h4>Interchange Fee Calculator</h4>
+                    <p>Fee calculation system for POS transactions across multiple payment networks</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Shell</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h4>Voltage PCI Encryption</h4>
+                    <p>Implemented secure encryption/decryption system for sensitive payment data</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">Security</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <h4>Lanka Clear Migration</h4>
+                    <p>Complete migration and development project for Sri Lankan banking system</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">Oracle</span>
+                        <span class="tech-tag">Unix</span>
+                    </div>
                 </div>
             </div>
             
-            <div class="section">
-                <h2><span class="section-icon">📞</span>Contact Information</h2>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span>📧</span>
-                        <span>karthikeyan_official@hotmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>🌐</span>
-                        <span>linkedin.com/in/karthikeyanin</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>📍</span>
-                        <span>Chennai, Tamil Nadu</span>
-                    </div>
-                </div>
-            </div>
-
-             <div class="section">
-                <h2><span class="section-icon">📞</span>Resume</h2>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span>Download Here</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </aside>
     </div>
 </body>
 </html>
