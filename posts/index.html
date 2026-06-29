@@ -5,16 +5,39 @@
   <title>Posts | Karthikeyan M</title>
   <style>
     body { font-family: 'DM Sans', sans-serif; background: #060A14; color: #E2E8F0; padding: 2rem; max-width: 800px; margin: auto; }
-    a { color: #4F9EFF; text-decoration: none; }
+    a { color: #4F9EFF; text-decoration: none; font-weight: 500; font-size: 1.1rem; }
+    a:hover { text-decoration: underline; }
     .post-list { list-style: none; padding: 0; }
-    .post-list li { margin-bottom: 1.5rem; border-bottom: 1px solid #1A2540; padding-bottom: 1rem; }
-    .post-date { font-size: 0.85rem; color: #718096; }
+    
+    /* New Layout for Thumbnails */
+    .post-item { 
+      display: flex; 
+      gap: 1.5rem; 
+      align-items: center; 
+      margin-bottom: 2rem; 
+      border-bottom: 1px solid #1A2540; 
+      padding-bottom: 1.5rem; 
+    }
+    .post-thumb { 
+      width: 150px; 
+      height: 100px; 
+      object-fit: cover; 
+      border-radius: 8px; 
+      flex-shrink: 0; 
+      border: 1px solid #1A2540;
+    }
+    .post-info { display: flex; flex-direction: column; gap: 0.3rem; }
+    .post-date { font-size: 0.85rem; color: #718096; font-family: 'JetBrains Mono', monospace; }
+    
+    @media (max-width: 600px) {
+      .post-item { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .post-thumb { width: 100%; height: auto; aspect-ratio: 16/9; }
+    }
   </style>
 </head>
 <body>
-  <h1><a href="/">&#8592; Home</a> | Latest Posts</h1>
+  <h1><a href="/" style="font-size: 1.5rem;">&#8592; Home</a> | Latest Posts</h1>
   <ul class="post-list" id="post-list">
-    <li><a href="cursor-now-has-a-mobile-app-for-guiding-your-coding-agent-on-the-go.html">Cursor now has a mobile app for guiding your coding agent on the go</a><br><span class="post-date">June 29, 2026</span></li>
     </ul>
 </body>
 </html>
