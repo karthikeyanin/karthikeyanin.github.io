@@ -1,12 +1,11 @@
 import feedparser
-import google.generativeai as genai
 import os
 import re
 from datetime import datetime
+from google import genai
 
-# Configure AI (Requires a free Gemini API Key set in GitHub Secrets)
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-model = genai.GenerativeModel('gemini-pro')
+# The new SDK automatically detects the GEMINI_API_KEY environment variable
+client = genai.Client()
 
 def fetch_top_news():
     # Using TechCrunch as an example RSS feed
@@ -25,7 +24,12 @@ def generate_article(title, description):
     2. Add a brief technical perspective or opinion on how it impacts software engineering or infrastructure.
     Format the output in pure HTML using <p> and <strong> tags only. Do not include standard html boilerplate.
     """
-    response = model.generate_content(prompt)
+    
+    # Using the current standard model
+    response = client.models.generate_content(
+        model='gemini-1.5-flash',
+        contents=prompt
+    )
     return response.text
 
 def slugify(text):
