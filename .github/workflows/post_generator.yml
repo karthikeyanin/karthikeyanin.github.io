@@ -1,0 +1,41 @@
+name: Generate AI Tech Post
+
+on:
+  schedule:
+    # Runs at 00:00 UTC on Monday, Wednesday, and Friday
+    - cron: '0 0 * * 1,3,5'
+  workflow_dispatch: # Allows manual triggering for testing
+
+jobs:
+  generate-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install feedparser google-generativeai
+
+      - name: Run Post Generator
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scripts/generate_post.py
+
+      - name: Create Pull Request for Approval
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Draft new AI tech post"
+          title: "📝 Draft Post: Review Required"
+          body: "A new tech post has been generated. Review the changes and merge to publish to GitHub Pages."
+          branch: "new-draft-post"
+          base: "main"
