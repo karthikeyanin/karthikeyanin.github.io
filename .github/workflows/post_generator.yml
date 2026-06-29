@@ -23,7 +23,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install feedparser google-generativeai
+        run: pip install feedparser google-genai
 
       - name: Run Post Generator
         env:
