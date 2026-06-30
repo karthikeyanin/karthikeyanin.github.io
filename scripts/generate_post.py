@@ -104,10 +104,10 @@ def main():
         replacement = f"{new_list_item}\n    <!-- POSTS_INJECT_MARKER -->\n  </ul>"
         index_html = index_html.replace('</ul>', replacement, 1)
     else:
-        print("CRITICAL ERROR: Could not find valid target tags in posts/index.html. File left untouched.")
+        print("CRITICAL ERROR: Could not find valid target tags in blog/posts/index.html. File left untouched.")
         return
     
-    with open("posts/index.html", "w", encoding="utf-8") as f:
+    with open("blog/posts/index.html", "w", encoding="utf-8") as f:
         f.write(index_html)
 
     print(f"Successfully generated post: {file_name}")
