@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Posts | Karthikeyan M</title>
+  <style>
+    body { font-family: 'DM Sans', sans-serif; background: #060A14; color: #E2E8F0; padding: 2rem; max-width: 800px; margin: auto; }
+    a { color: #4F9EFF; text-decoration: none; font-weight: 500; font-size: 1.1rem; }
+    a:hover { text-decoration: underline; }
+    .post-list { list-style: none; padding: 0; }
+    
+    /* New Layout for Thumbnails */
+    .post-item { 
+      display: flex; 
+      gap: 1.5rem; 
+      align-items: center; 
+      margin-bottom: 2rem; 
+      border-bottom: 1px solid #1A2540; 
+      padding-bottom: 1.5rem; 
+    }
+    .post-thumb { 
+      width: 150px; 
+      height: 100px; 
+      object-fit: cover; 
+      border-radius: 8px; 
+      flex-shrink: 0; 
+      border: 1px solid #1A2540;
+    }
+    .post-info { display: flex; flex-direction: column; gap: 0.3rem; }
+    .post-date { font-size: 0.85rem; color: #718096; font-family: 'JetBrains Mono', monospace; }
+    
+    @media (max-width: 600px) {
+      .post-item { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .post-thumb { width: 100%; height: auto; aspect-ratio: 16/9; }
+    }
+  </style>
+</head>
+<body>
+  <h1><a href="/" style="font-size: 1.5rem;">&#8592; Home</a> | Blog Posts</h1>
+  <ul class="post-list" id="post-list">
+
+    <li class="post-item">
+      <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="Thumbnail" class="post-thumb" onerror="this.style.display='none'">
+      <div class="post-info">
+        <a href="cursor-now-has-a-mobile-app-for-guiding-your-coding-agent-on-the-go.html">Cursor now has a mobile app for guiding your coding agent on the go</a>
+        <span class="post-date">June 29, 2026</span>
+      </div>
+    </li>
+    
+    <li class="post-item">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Thumbnail" class="post-thumb" onerror="this.style.display='none'">
+      <div class="post-info">
+        <a href="the-ai-jobs-debate-just-got-messier.html">The AI jobs debate just got messier</a>
+        <span class="post-date">June 30, 2026</span>
+      </div>
+    </li>
+    <!-- POSTS_INJECT_MARKER -->
+  </ul>
+</body>
+</html>

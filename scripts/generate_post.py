@@ -32,8 +32,8 @@ def generate_article(title, description):
 
 def generate_thumbnail(title, file_slug):
     """Generates an AI image using Gemini Image and saves it locally."""
-    os.makedirs("posts/images", exist_ok=True)
-    image_path = f"posts/images/{file_slug}.png"
+    os.makedirs("blog/posts/images", exist_ok=True)
+    image_path = f"blog/posts/images/{file_slug}.png"
     
     image_prompt = f"A simple, minimalist, flat vector illustration representing technology news about: {title}. Clean lines, professional tech blog style, dark blue and vibrant accent colors."
     
@@ -63,7 +63,7 @@ def main():
     file_name = file_slug + ".html"
     
     # 1. Generate individual post page
-    with open("posts/template.html", "r", encoding="utf-8") as f:
+    with open("blog/posts/template.html", "r", encoding="utf-8") as f:
         template = f.read()
     
     post_html = template.replace("{{TITLE}}", title)\
@@ -71,11 +71,11 @@ def main():
                         .replace("{{IMAGE_URL}}", img_url)\
                         .replace("{{CONTENT}}", html_content)
     
-    with open(f"posts/{file_name}", "w", encoding="utf-8") as f:
+    with open(f"blog/posts/{file_name}", "w", encoding="utf-8") as f:
         f.write(post_html)
         
     # 2. Update index.html safely
-    with open("posts/index.html", "r", encoding="utf-8") as f:
+    with open("blog/posts/index.html", "r", encoding="utf-8") as f:
         index_html = f.read()
         
     # Check if this exact post already exists to prevent duplication loops
