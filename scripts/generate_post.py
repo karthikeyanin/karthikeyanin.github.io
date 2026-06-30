@@ -1,6 +1,7 @@
 import feedparser
 import os
 import re
+import base64
 from datetime import datetime
 from google import genai
 from google.genai import types
@@ -41,19 +42,15 @@ def generate_thumbnail(title, file_slug):
     image_prompt = f"A simple, minimalist, flat vector illustration representing technology news about: {title}. Clean lines, professional tech blog style, dark blue and vibrant accent colors."
     
     try:
-        result = client.models.generate_images(
-            model='imagen-3.0-generate-002',
-            prompt=image_prompt,
-            config=types.GenerateImagesConfig(
-                number_of_images=1,
-                output_mime_type="image/jpeg",
-                aspect_ratio="16:9"
-            )
+        # Use the new Interactions API and the 3.1 Flash Image model
+        interaction = client.interactions.create(
+            model="gemini-3.1-flash-image",
+            input=image_prompt
         )
         
         # Save the generated image bytes directly to a file
         with open(image_path, "wb") as f:
-            f.write(result.generated_images[0].image.image_bytes)
+            f.write(base64.b64decode(interaction.output_image.data))
             
         # Return the relative path for the HTML to use
         return f"images/{file_slug}.jpg"
