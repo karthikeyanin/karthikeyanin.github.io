@@ -4,7 +4,6 @@ import re
 import base64
 from datetime import datetime
 from google import genai
-from google.genai import types
 
 client = genai.Client()
 
@@ -32,32 +31,22 @@ def generate_article(title, description):
     return response.text
 
 def generate_thumbnail(title, file_slug):
-    """Generates an AI image using Imagen 3 and saves it locally."""
-    # Ensure the images directory exists
+    """Generates an AI image using Gemini Image and saves it locally."""
     os.makedirs("posts/images", exist_ok=True)
+    image_path = f"posts/images/{file_slug}.png"
     
-    image_path = f"posts/images/{file_slug}.jpg"
-    
-    # Prompt for a consistent, clean blog aesthetic
     image_prompt = f"A simple, minimalist, flat vector illustration representing technology news about: {title}. Clean lines, professional tech blog style, dark blue and vibrant accent colors."
     
     try:
-        # Use the new Interactions API and the 3.1 Flash Image model
         interaction = client.interactions.create(
             model="gemini-3.1-flash-image",
             input=image_prompt
         )
-        
-        # Save the generated image bytes directly to a file
         with open(image_path, "wb") as f:
             f.write(base64.b64decode(interaction.output_image.data))
-            
-        # Return the relative path for the HTML to use
-        return f"images/{file_slug}.jpg"
-        
+        return f"images/{file_slug}.png"
     except Exception as e:
         print(f"Image generation failed: {e}")
-        # Fallback to a placeholder if the image generation fails for any reason
         return "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
 
 def slugify(text):
@@ -68,12 +57,12 @@ def main():
     file_slug = slugify(title)
     
     html_content = generate_article(title, description)
-    img_url = generate_thumbnail(title, file_slug) # Call the image generator
+    img_url = generate_thumbnail(title, file_slug)
     
     date_str = datetime.now().strftime("%B %d, %Y")
     file_name = file_slug + ".html"
     
-    # 1. Generate the Post File
+    # 1. Generate individual post page
     with open("posts/template.html", "r", encoding="utf-8") as f:
         template = f.read()
     
@@ -85,10 +74,16 @@ def main():
     with open(f"posts/{file_name}", "w", encoding="utf-8") as f:
         f.write(post_html)
         
-    # 2. Update the Posts Index
+    # 2. Update index.html safely
     with open("posts/index.html", "r", encoding="utf-8") as f:
         index_html = f.read()
         
+    # Check if this exact post already exists to prevent duplication loops
+    if f'href="{file_name}"' in index_html:
+        print(f"Post {file_name} already exists in index.html. Skipping modification.")
+        return
+
+    # Build clean list item snippet
     new_list_item = f'''
     <li class="post-item">
       <img src="{img_url}" alt="Thumbnail" class="post-thumb" onerror="this.style.display='none'">
@@ -96,15 +91,26 @@ def main():
         <a href="{file_name}">{title}</a>
         <span class="post-date">{date_str}</span>
       </div>
-    </li>
-    '''
-    
-    index_html = index_html.replace('', new_list_item.strip())
+    </li>'''
+
+    # Strictly controlled injection logic
+    if '<!-- POSTS_INJECT_MARKER -->' in index_html:
+        # Standard injection path
+        replacement = f"{new_list_item}\n    <!-- POSTS_INJECT_MARKER -->"
+        index_html = index_html.replace('<!-- POSTS_INJECT_MARKER -->', replacement, 1)
+    elif '</ul>' in index_html:
+        # Safe fallback if marker was stripped by a bad PR merge
+        print("Marker missing! Falling back to safe </ul> insertion tag.")
+        replacement = f"{new_list_item}\n    <!-- POSTS_INJECT_MARKER -->\n  </ul>"
+        index_html = index_html.replace('</ul>', replacement, 1)
+    else:
+        print("CRITICAL ERROR: Could not find valid target tags in posts/index.html. File left untouched.")
+        return
     
     with open("posts/index.html", "w", encoding="utf-8") as f:
         f.write(index_html)
 
-    print(f"Successfully generated post: {file_name} with AI image: {img_url}")
+    print(f"Successfully generated post: {file_name}")
 
 if __name__ == "__main__":
     main()
