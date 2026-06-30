@@ -2,48 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The AI jobs debate just got messier</title>
   <style>
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #060A14;
-      color: #E2E8F0;
-      line-height: 1.8;
-      font-size: 1.15rem;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
+    :root {
+      color-scheme: light;
+      background: #f7f3ef;
+      color: #1f1f1f;
+      font-family: Georgia, 'Times New Roman', serif;
     }
-    a { color: #4F9EFF; }
-    h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 0.5rem; line-height: 1.2; }
-    .meta { color: #718096; font-size: 0.9rem; font-family: 'JetBrains Mono', monospace; margin-bottom: 2rem; }
-    p { margin-bottom: 1.5rem; }
-    blockquote { border-left: 4px solid #4F9EFF; padding-left: 1rem; color: #A0AEC0; font-style: italic; }
-    
-    /* Hero Image Styles */
-    .hero-image {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 3rem;
-      border: 1px solid #1A2540;
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 0; background: #f7f3ef; }
+    .page { max-width: 920px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+    .meta, .section-label { font-family: 'JetBrains Mono', monospace; color: #8c7563; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.82rem; }
+    .top-nav { margin-bottom: 1rem; }
+    .top-nav a { color: #8c7563; text-decoration: none; border-bottom: 1px dashed transparent; transition: color 0.2s, border-color 0.2s; }
+    .top-nav a:hover { color: #1f1f1f; border-color: #8c7563; }
+    .article-card { background: #ffffff; border: 1px solid #d6cec2; border-radius: 20px; padding: 2.25rem; box-shadow: 0 30px 70px rgba(0,0,0,0.08); }
+    .article-header { margin-bottom: 2rem; }
+    h1 { font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.05; margin: 0 0 1rem; }
+    .eyebrow { display: inline-block; margin-bottom: 1.5rem; }
+    .hero-image { width: 100%; border-radius: 16px; object-fit: cover; height: 360px; margin-bottom: 2rem; border: 1px solid #d6cec2; }
+    .content p { margin-bottom: 1.75rem; font-size: 1.05rem; line-height: 1.9; color: #4e4a46; }
+    strong { color: #1f1f1f; }
+    blockquote { margin: 2rem 0; padding-left: 1.2rem; border-left: 4px solid #8c7563; color: #6d6159; font-style: italic; background: #fbf6f1; }
+    .footer-note { margin-top: 2.75rem; color: #8c7563; font-size: 0.95rem; }
+    @media (max-width: 700px) {
+      .page { padding: 1.5rem 1rem 3rem; }
+      .hero-image { height: 240px; }
     }
   </style>
 </head>
 <body>
-  <a href="/blog/posts/" style="font-size: 0.9rem; text-decoration:none;">&#8592; Back to Posts</a>
-  <h1>The AI jobs debate just got messier</h1>
-  <div class="meta">June 30, 2026</div>
-  
-  <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Post Hero Image" class="hero-image" onerror="this.style.display='none'">
-  
-  <div class="content">
-    <p>A recent report has added a crucial dimension to the ongoing debate about AI's impact on jobs, specifically challenging the narrative that artificial intelligence is a significant threat to employment, especially for junior roles. The findings indicate that companies identified as "high-intensity AI adopters" saw their overall headcount increase by a notable 10.2%. Even more compelling, within these organizations, <strong>entry-level headcount experienced an even larger surge, rising by 12%</strong>, directly countering the prevailing rhetoric that AI will disproportionately eliminate junior positions.</p>
+  <div class="page">
+    <div class="top-nav"><a href="/blog/posts/">← Back to posts</a></div>
+    <article class="article-card">
+      <div class="article-header">
+        <div class="eyebrow">Politics of AI</div>
+        <h1>The AI jobs debate just got messier</h1>
+        <div class="meta">June 30, 2026</div>
+      </div>
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80" alt="AI jobs debate" class="hero-image" onerror="this.style.display='none'">
+      <div class="content">
+        <p>A recent report has added a crucial dimension to the ongoing debate about AI's impact on jobs, specifically challenging the narrative that artificial intelligence is a significant threat to employment, especially for junior roles. The findings indicate that companies identified as "high-intensity AI adopters" saw their overall headcount increase by a notable 10.2%. Even more compelling, within these organizations, <strong>entry-level headcount experienced an even larger surge, rising by 12%</strong>, directly countering the prevailing rhetoric that AI will disproportionately eliminate junior positions.</p>
 
-<p>From a software engineering perspective, this trend is both logical and encouraging. The adoption of AI isn't simply about dropping a pre-trained model into production; it involves a substantial amount of foundational work. This includes robust data engineering, building scalable MLOps pipelines, developing APIs for model interaction, creating new user experiences that leverage AI, and extensive system integration. These new demands expand the scope of work rather than diminish it, often creating new categories of roles and requiring more hands to build and maintain the necessary infrastructure. Junior engineers are vital for handling the increased operational load, contributing to integration layers, and developing the tooling that enables sophisticated AI solutions to function reliably.</p>
+        <p>From a software engineering perspective, this trend is both logical and encouraging. The adoption of AI isn't simply about dropping a pre-trained model into production; it involves a substantial amount of foundational work. This includes robust data engineering, building scalable MLOps pipelines, developing APIs for model interaction, creating new user experiences that leverage AI, and extensive system integration. These new demands expand the scope of work rather than diminish it, often creating new categories of roles and requiring more hands to build and maintain the necessary infrastructure. Junior engineers are vital for handling the increased operational load, contributing to integration layers, and developing the tooling that enables sophisticated AI solutions to function reliably.</p>
 
-<p>This report highlights that AI is proving to be an augmentation technology, not solely a replacement. For software engineers, this reinforces the importance of continuous learning and adapting our skill sets to leverage AI effectively. Rather than fearing job displacement, we should view AI as a powerful new tool in our arsenal, opening up exciting new frontiers in product development and system design. <strong>The future of software engineering is likely to involve deeper AI integration</strong>, requiring engineers who can build intelligent systems, manage complex AI ecosystems, and innovate with this transformative technology.</p>
+        <p>This report highlights that AI is proving to be an augmentation technology, not solely a replacement. For software engineers, this reinforces the importance of continuous learning and adapting our skill sets to leverage AI effectively. Rather than fearing job displacement, we should view AI as a powerful new tool in our arsenal, opening up exciting new frontiers in product development and system design. <strong>The future of software engineering is likely to involve deeper AI integration</strong>, requiring engineers who can build intelligent systems, manage complex AI ecosystems, and innovate with this transformative technology.</p>
+      </div>
+      <div class="footer-note">Static article • Newspaper-inspired layout • Built for GitHub Pages</div>
+    </article>
   </div>
 </body>
 </html>
